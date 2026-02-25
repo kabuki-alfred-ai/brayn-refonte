@@ -55,7 +55,7 @@ export default function UseCases() {
             <span className="w-8 h-px bg-white/20" />
             <span className="text-xs font-medium tracking-wide text-white/50 uppercase">Résultats mesurables</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-6">
+          <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-6 font-nasalization">
             L'excellence opérationnelle,<br />
             <span className="text-white/40">prouvée.</span>
           </h2>
@@ -88,7 +88,7 @@ export default function UseCases() {
                       </div>
                       <div>
                         <span className="text-xs text-white/40 font-medium tracking-wide uppercase">{useCase.client}</span>
-                        <h3 className="text-lg font-medium text-white tracking-tight">{useCase.title}</h3>
+                        <h3 className="text-lg font-medium text-white tracking-tight font-nasalization">{useCase.title}</h3>
                       </div>
                     </div>
 

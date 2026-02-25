@@ -46,7 +46,7 @@ function ServiceCard({ service, index }: { service: typeof services[0], index: n
               <service.icon className="w-6 h-6 text-white/80" strokeWidth={1} />
             </div>
             
-            <h3 className="text-2xl font-medium text-white mb-4 tracking-tight">{service.title}</h3>
+            <h3 className="text-2xl font-medium text-white mb-4 tracking-tight font-nasalization">{service.title}</h3>
             <p className="text-[15px] font-light text-white/50 leading-relaxed mb-8">
               {service.description}
             </p>
@@ -92,7 +92,7 @@ export default function Services() {
               <span className="w-10 h-[1px] bg-white/20" />
               <span className="text-xs font-semibold tracking-[0.2em] text-white/40 uppercase">Aura Architecture</span>
             </div>
-            <h2 className="text-5xl sm:text-6xl font-medium tracking-tighter text-white mb-6 leading-tight">
+            <h2 className="text-5xl sm:text-6xl font-medium tracking-tighter text-white mb-6 leading-tight font-nasalization">
               L'intégration IA,<br />
               <span className="text-white/30 italic">parfaite et profonde.</span>
             </h2>

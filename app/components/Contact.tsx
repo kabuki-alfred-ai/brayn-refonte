@@ -17,13 +17,13 @@ export default function Contact() {
           >
             <div className="flex items-center gap-2 mb-4">
               <span className="w-8 h-px bg-white/20" />
-              <span className="text-xs font-medium tracking-wide text-white/50 uppercase">Échange confidentiel</span>
+              <span className="text-xs font-medium tracking-wide text-white/70 uppercase">Échange confidentiel</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-6">
+            <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-6 font-nasalization">
               Initier le <br />
-              <span className="text-white/40">mouvement.</span>
+              <span className="text-white/60">mouvement.</span>
             </h2>
-            <p className="text-lg text-white/50 font-light leading-relaxed mb-12 max-w-md">
+            <p className="text-lg text-white/70 font-light leading-relaxed mb-12 max-w-md">
               Prêt à transformer votre entreprise avec l'IA ? Discutons de vos enjeux de façon transparente et confidentielle.
             </p>
 
@@ -33,7 +33,7 @@ export default function Contact() {
                   <Mail className="w-4 h-4 text-white/70" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <div className="text-xs uppercase tracking-widest font-semibold text-white/30 mb-1">Email direct</div>
+                  <div className="text-xs uppercase tracking-widest font-semibold text-white/50 mb-1">Email direct</div>
                   <a href="mailto:contact@brayn-ai.com" className="text-sm font-medium text-white/80 hover:text-white transition-colors">
                     contact@brayn-ai.com
                   </a>
@@ -45,7 +45,7 @@ export default function Contact() {
                   <MapPin className="w-4 h-4 text-white/70" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <div className="text-xs uppercase tracking-widest font-semibold text-white/30 mb-1">Bureau</div>
+                  <div className="text-xs uppercase tracking-widest font-semibold text-white/50 mb-1">Bureau</div>
                   <span className="text-sm font-medium text-white/80">Paris, France</span>
                 </div>
               </div>
@@ -63,7 +63,7 @@ export default function Contact() {
               <div className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-xs uppercase tracking-widest font-semibold text-white/50 mb-3">Nom</label>
+                    <label className="block text-xs uppercase tracking-widest font-semibold text-white/70 mb-3">Nom</label>
                     <input
                       type="text"
                       className="w-full px-5 py-3.5 rounded-xl bg-black border border-white/10 text-white placeholder-white/20 focus:outline-none focus:border-white/40 focus:bg-white/5 transition-all font-light text-sm"
@@ -71,7 +71,7 @@ export default function Contact() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs uppercase tracking-widest font-semibold text-white/50 mb-3">Organisation</label>
+                    <label className="block text-xs uppercase tracking-widest font-semibold text-white/70 mb-3">Organisation</label>
                     <input
                       type="text"
                       className="w-full px-5 py-3.5 rounded-xl bg-black border border-white/10 text-white placeholder-white/20 focus:outline-none focus:border-white/40 focus:bg-white/5 transition-all font-light text-sm"
@@ -81,7 +81,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs uppercase tracking-widest font-semibold text-white/50 mb-3">Email Pro</label>
+                  <label className="block text-xs uppercase tracking-widest font-semibold text-white/70 mb-3">Email Pro</label>
                   <input
                     type="email"
                     className="w-full px-5 py-3.5 rounded-xl bg-black border border-white/10 text-white placeholder-white/20 focus:outline-none focus:border-white/40 focus:bg-white/5 transition-all font-light text-sm"
@@ -90,7 +90,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs uppercase tracking-widest font-semibold text-white/50 mb-3">Contexte</label>
+                  <label className="block text-xs uppercase tracking-widest font-semibold text-white/70 mb-3">Contexte</label>
                   <textarea
                     rows={4}
                     className="w-full px-5 py-3.5 rounded-xl bg-black border border-white/10 text-white placeholder-white/20 focus:outline-none focus:border-white/40 focus:bg-white/5 transition-all font-light text-sm resize-none"

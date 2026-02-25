@@ -52,9 +52,9 @@ export default function Navbar() {
 
         {/* Links */}
         <div className="hidden md:flex items-center gap-8">
-          <a href="#services" onClick={(e) => scrollTo(e, 'services')} className="text-sm font-medium tracking-wide text-white/50 hover:text-white transition-colors">Infrastructure</a>
-          <a href="#cases" onClick={(e) => scrollTo(e, 'cases')} className="text-sm font-medium tracking-wide text-white/50 hover:text-white transition-colors">Cas d'usage</a>
-          <a href="#contact" onClick={(e) => scrollTo(e, 'contact')} className="text-sm font-medium tracking-wide text-white/50 hover:text-white transition-colors">Correspondance</a>
+          <a href="#services" onClick={(e) => scrollTo(e, 'services')} className="text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors">Infrastructure</a>
+          <a href="#cases" onClick={(e) => scrollTo(e, 'cases')} className="text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors">Cas d'usage</a>
+          <a href="#contact" onClick={(e) => scrollTo(e, 'contact')} className="text-sm font-medium tracking-wide text-white/80 hover:text-white transition-colors">Correspondance</a>
         </div>
 
         {/* CTA */}

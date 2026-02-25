@@ -40,13 +40,13 @@ export default function WhyChoose() {
           >
             <div className="flex items-center gap-2 mb-4">
               <span className="w-8 h-px bg-white/20" />
-              <span className="text-xs font-medium tracking-wide text-white/50 uppercase">Notre ADN</span>
+              <span className="text-xs font-medium tracking-wide text-white/70 uppercase">Notre ADN</span>
             </div>
-            <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-6">
+            <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-6 font-nasalization">
               L'impact, <br className="hidden sm:block" />
-              <span className="text-white/40">sans les buzzwords.</span>
+              <span className="text-white/60">sans les buzzwords.</span>
             </h2>
-            <p className="text-lg text-white/50 font-light leading-relaxed mb-12">
+            <p className="text-lg text-white/70 font-light leading-relaxed mb-12">
               Nous concevons des stratégies de transformation pérennes. Pas d'expérimentations aléatoires, juste une exécution de l'état de l'art technologique.
             </p>
 
@@ -64,8 +64,8 @@ export default function WhyChoose() {
                     <item.icon className="w-4 h-4 text-white/70" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <h3 className="font-medium text-white tracking-tight mb-2">{item.title}</h3>
-                    <p className="text-sm font-light text-white/50 leading-relaxed">{item.description}</p>
+                    <h3 className="font-medium text-white tracking-tight mb-2 font-nasalization">{item.title}</h3>
+                    <p className="text-sm font-light text-white/70 leading-relaxed">{item.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -84,15 +84,15 @@ export default function WhyChoose() {
               <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
               
               <div className="relative z-10 w-full">
-                <div className="text-7xl font-medium tracking-tighter text-white mb-2">24<span className="text-3xl text-white/30">+</span></div>
-                <div className="text-sm uppercase tracking-widest font-semibold text-white/70 mb-2">Années d'expérience</div>
-                <div className="text-sm font-light text-white/40">Cumulées en transformation digitale</div>
+                <div className="text-7xl font-medium tracking-tighter text-white mb-2">24<span className="text-3xl text-white/60">+</span></div>
+                <div className="text-sm uppercase tracking-widest font-semibold text-white/90 mb-2">Années d'expérience</div>
+                <div className="text-sm font-light text-white/60">Cumulées en transformation digitale</div>
                 
                 <div className="my-10 w-full h-px bg-white/5" />
                 
-                <div className="text-7xl font-medium tracking-tighter text-white mb-2">100<span className="text-3xl text-white/30">%</span></div>
-                <div className="text-sm uppercase tracking-widest font-semibold text-white/70 mb-2">Orienté sur la valeur</div>
-                <div className="text-sm font-light text-white/40">Rejet absolu des solutions préfabriquées</div>
+                <div className="text-7xl font-medium tracking-tighter text-white mb-2">100<span className="text-3xl text-white/60">%</span></div>
+                <div className="text-sm uppercase tracking-widest font-semibold text-white/90 mb-2">Orienté sur la valeur</div>
+                <div className="text-sm font-light text-white/60">Rejet absolu des solutions préfabriquées</div>
               </div>
             </div>
           </motion.div>

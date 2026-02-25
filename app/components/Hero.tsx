@@ -5,22 +5,23 @@ import { ArrowRight, ChevronRight } from 'lucide-react'
 import { useRef, useEffect } from 'react'
 
 function FloatingPaths({ position }: { position: number }) {
-  const paths = Array.from({ length: 36 }, (_, i) => ({
+  const paths = Array.from({ length: 18 }, (_, i) => ({
       id: i,
-      d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
+      // Shifted the entire path 100 units higher (originally centered much lower) by subtracting 100 from all Y coordinates.
+      d: `M-${380 - i * 5 * position} -${289 + i * 6}C-${
           380 - i * 5 * position
-      } -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${
+      } -${289 + i * 6} -${312 - i * 5 * position} ${116 - i * 6} ${
           152 - i * 5 * position
-      } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
+      } ${243 - i * 6}C${616 - i * 5 * position} ${370 - i * 6} ${
           684 - i * 5 * position
-      } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
+      } ${775 - i * 6} ${684 - i * 5 * position} ${775 - i * 6}`,
       width: 0.5 + i * 0.03,
   }));
 
   return (
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none -mt-32">
           <svg
-              className="w-full h-full text-white"
+              className="w-full h-full"
               viewBox="0 0 696 316"
               fill="none"
           >
@@ -29,13 +30,14 @@ function FloatingPaths({ position }: { position: number }) {
                   <motion.path
                       key={path.id}
                       d={path.d}
-                      stroke="currentColor"
-                      strokeWidth={path.width}
-                      strokeOpacity={0.05 + path.id * 0.015} // Reduced opacity for dark background
-                      initial={{ pathLength: 0.3, opacity: 0.6 }}
+                      stroke={path.id % 2 === 0 ? "#00f0ff" : "#8b5cf6"}
+                      strokeWidth={path.width * 1.5}
+                      strokeOpacity={0.8 + path.id * 0.02} // Signifiantly increased base opacity for less transparency
+                      className="mix-blend-screen"
+                      initial={{ pathLength: 0.3, opacity: 0.8 }}
                       animate={{
                           pathLength: 1,
-                          opacity: [0.3, 0.6, 0.3],
+                          opacity: [0.6, 1, 0.6],
                           pathOffset: [0, 1, 0],
                       }}
                       transition={{
@@ -78,7 +80,7 @@ export default function Hero() {
   }, [mouseX, mouseY])
 
   return (
-    <section ref={containerRef} className="relative min-h-[110vh] flex items-center justify-center bg-black overflow-hidden selection:bg-white/20">
+    <section ref={containerRef} className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden selection:bg-white/20">
       
       {/* Ambient Moving Orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -89,7 +91,7 @@ export default function Hero() {
             scale: [1, 1.1, 0.9, 1]
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute top-[10%] -left-[10%] w-[800px] h-[800px] bg-white/[0.06] rounded-full blur-[120px]"
+          className="absolute top-[10%] -left-[10%] w-[800px] h-[800px] bg-white/[0.04] rounded-full blur-[80px]"
         />
         <motion.div 
           animate={{ 
@@ -98,7 +100,7 @@ export default function Hero() {
             scale: [1, 1.2, 0.8, 1]
           }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-[-10%] -right-[10%] w-[1000px] h-[1000px] bg-white/[0.04] rounded-full blur-[150px]"
+          className="absolute bottom-[-10%] -right-[10%] w-[1000px] h-[1000px] bg-white/[0.03] rounded-full blur-[90px]"
         />
         <motion.div 
           animate={{ 
@@ -107,7 +109,7 @@ export default function Hero() {
             scale: [0.9, 1.1, 0.9]
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-[40%] left-[40%] w-[600px] h-[600px] bg-white/[0.04] rounded-full blur-[100px]"
+          className="absolute top-[40%] left-[40%] w-[600px] h-[600px] bg-white/[0.03] rounded-full blur-[70px]"
         />
       </div>
 
@@ -123,16 +125,11 @@ export default function Hero() {
         }}
       />
       
-      {/* Cinematic Film Grain & Animated Grid Background */}
+      {/* Animated Grid Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
         <FloatingPaths position={1} />
         <FloatingPaths position={-1} />
       </div>
-      
-      <div 
-        className="absolute inset-0 opacity-[0.08] pointer-events-none mix-blend-overlay" 
-        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E")` }}
-      />
 
       
       <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black to-transparent z-10 pointer-events-none" />
@@ -142,7 +139,7 @@ export default function Hero() {
       {/* Hero Content with Parallax */}
       <motion.div 
         style={{ y }}
-        className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-32 pb-40"
+        className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-32 pb-20"
       >
 
 
@@ -178,7 +175,7 @@ export default function Hero() {
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="text-lg sm:text-xl text-white/40 font-light leading-relaxed tracking-wide"
+            className="text-lg sm:text-xl text-white/70 font-light leading-relaxed tracking-wide"
           >
             L'intelligence artificielle fait évoluer le monde. BRAYN donne une direction claire à cette évolution. Nous transformons les entreprises qui veulent diriger plutôt que de suivre.
           </motion.p>
@@ -206,10 +203,10 @@ export default function Hero() {
           {/* Secondary Button */}
           <button 
             onClick={() => document.getElementById('cases')?.scrollIntoView({ behavior: 'smooth' })}
-            className="group inline-flex items-center gap-2 px-6 py-4 text-white/50 hover:text-white transition-colors duration-500"
+            className="group inline-flex items-center gap-2 px-6 py-4 text-white/80 hover:text-white transition-colors duration-500"
           >
             <span className="font-medium text-sm tracking-wide">Explorer les KPIs</span>
-            <ChevronRight className="w-4 h-4 text-white/30 group-hover:text-white group-hover:translate-x-1 transition-all" />
+            <ChevronRight className="w-4 h-4 text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all" />
           </button>
         </motion.div>
 
@@ -218,7 +215,7 @@ export default function Hero() {
            initial={{ opacity: 0, filter: 'blur(10px)' }}
            animate={{ opacity: 1, filter: 'blur(0px)' }}
            transition={{ duration: 1.5, delay: 0.8 }}
-           className="mt-32 pt-12 border-t border-white/5 grid grid-cols-2 lg:grid-cols-4 gap-12"
+           className="mt-8 pt-6 border-t border-white/5 grid grid-cols-2 lg:grid-cols-4 gap-12"
         >
           {[
             { metric: '95%', label: 'Gain en vitesse de recherche' },
@@ -235,7 +232,7 @@ export default function Hero() {
             >
               <div className="absolute -inset-4 bg-white/0 group-hover:bg-white/[0.02] rounded-2xl transition-colors duration-500 pointer-events-none" />
               <span className="text-4xl font-medium text-white tracking-tighter group-hover:text-white transition-colors">{stat.metric}</span>
-              <span className="text-xs font-light text-white/30 uppercase tracking-widest leading-relaxed">{stat.label}</span>
+              <span className="text-xs font-light text-white/60 uppercase tracking-widest leading-relaxed">{stat.label}</span>
             </motion.div>
           ))}
         </motion.div>

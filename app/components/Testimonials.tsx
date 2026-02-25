@@ -40,11 +40,11 @@ export default function Testimonials() {
            className="text-center mb-24 max-w-2xl mx-auto flex flex-col items-center"
         >
           <div className="flex items-center gap-2 mb-4">
-            <span className="text-xs font-medium tracking-wide text-white/50 uppercase">Confiance & Expertise</span>
+            <span className="text-xs font-medium tracking-wide text-white/70 uppercase">Confiance & Expertise</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-6">
+          <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-6 font-nasalization">
             Ceux qui ont <br />
-            <span className="text-white/40">franchi le pas.</span>
+            <span className="text-white/60">franchi le pas.</span>
           </h2>
         </motion.div>
 
@@ -70,8 +70,8 @@ export default function Testimonials() {
 
                 <div className="pt-6 mt-auto border-t border-white/5 relative z-10">
                   <div className="font-medium text-white tracking-tight mb-1">{testimonial.author}</div>
-                  <div className="text-sm text-white/40 font-light mb-4">{testimonial.company}</div>
-                  <div className="inline-flex px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-white/60 text-xs font-medium tracking-wide">
+                  <div className="text-sm text-white/60 font-light mb-4">{testimonial.company}</div>
+                  <div className="inline-flex px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-white/80 text-xs font-medium tracking-wide">
                     {testimonial.highlight}
                   </div>
                 </div>
