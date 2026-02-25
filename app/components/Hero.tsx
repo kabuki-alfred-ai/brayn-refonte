@@ -3,54 +3,7 @@
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { ArrowRight, ChevronRight } from 'lucide-react'
 import { useRef, useEffect } from 'react'
-
-function FloatingPaths({ position }: { position: number }) {
-  const paths = Array.from({ length: 18 }, (_, i) => ({
-      id: i,
-      // Shifted the entire path 100 units higher (originally centered much lower) by subtracting 100 from all Y coordinates.
-      d: `M-${380 - i * 5 * position} -${289 + i * 6}C-${
-          380 - i * 5 * position
-      } -${289 + i * 6} -${312 - i * 5 * position} ${116 - i * 6} ${
-          152 - i * 5 * position
-      } ${243 - i * 6}C${616 - i * 5 * position} ${370 - i * 6} ${
-          684 - i * 5 * position
-      } ${775 - i * 6} ${684 - i * 5 * position} ${775 - i * 6}`,
-      width: 0.5 + i * 0.03,
-  }));
-
-  return (
-      <div className="absolute inset-0 pointer-events-none -mt-32">
-          <svg
-              className="w-full h-full"
-              viewBox="0 0 696 316"
-              fill="none"
-          >
-              <title>Background Paths</title>
-              {paths.map((path) => (
-                  <motion.path
-                      key={path.id}
-                      d={path.d}
-                      stroke={path.id % 2 === 0 ? "#00f0ff" : "#8b5cf6"}
-                      strokeWidth={path.width * 1.5}
-                      strokeOpacity={0.8 + path.id * 0.02} // Signifiantly increased base opacity for less transparency
-                      className="mix-blend-screen"
-                      initial={{ pathLength: 0.3, opacity: 0.8 }}
-                      animate={{
-                          pathLength: 1,
-                          opacity: [0.6, 1, 0.6],
-                          pathOffset: [0, 1, 0],
-                      }}
-                      transition={{
-                          duration: 20 + Math.random() * 10,
-                          repeat: Number.POSITIVE_INFINITY,
-                          ease: "linear",
-                      }}
-                  />
-              ))}
-          </svg>
-      </div>
-  );
-}
+import { Entropy } from './ui/entropy'
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -125,10 +78,9 @@ export default function Hero() {
         }}
       />
       
-      {/* Animated Grid Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
-        <FloatingPaths position={1} />
-        <FloatingPaths position={-1} />
+      {/* Entropy Grid Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40 flex items-center justify-center -mt-20">
+        <Entropy size={1200} className="mix-blend-screen scale-125" />
       </div>
 
       
