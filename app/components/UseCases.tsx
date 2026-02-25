@@ -1,112 +1,121 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { TrendingUp, Clock, Users, Building2, Shield, Wallet } from 'lucide-react'
+import { Building2, Shield, Wallet, Users } from 'lucide-react'
+import { GlowCard } from './ui/spotlight-card'
 
 const useCases = [
   {
     icon: Building2,
     title: 'Chatbot recherche interne',
-    client: 'Banque de detail',
-    problem: 'Acces rapide a l\'information dans un contexte multilingue',
+    client: 'Banque de détail',
+    problem: "Accès rapide à l'information dans un contexte multilingue",
     solution: 'Assistant IA multilingue avec architecture RAG et ontologie',
-    impact: ['95% de reduction du temps de recherche', 'Economie de 500K eur/an'],
+    impact: ['Réduction de 95% du temps de recherche', '180% de ROI sur 6 mois'],
   },
   {
     icon: Wallet,
-    title: 'Analyse dossiers financement',
-    client: 'Banque d\'investissement',
-    problem: 'Traitement automatise des demandes de financement PME',
-    solution: 'Analyse automatisee avec OCR et generation de rapports',
-    impact: ['65% de reduction du temps', '+32% du volume traite'],
+    title: 'Analyse de dossiers',
+    client: "Banque d'investissement",
+    problem: 'Traitement automatisé des demandes de financement',
+    solution: 'Extraction OCR avancée et génération automatisée',
+    impact: ['65% de réduction du délai', '+32% de volume traité'],
   },
   {
     icon: Users,
     title: 'Gestion fournisseurs',
     client: 'Entreprise de retail',
-    problem: 'Evaluation complexe des fournisseurs',
-    solution: 'Analyse multi-sources avec modeles adaptes',
-    impact: ['35% de reduction des incidents', '22% d\'economies'],
+    problem: 'Évaluation complexe et asymétrique',
+    solution: 'Analyse multi-sources, scoring via LLM',
+    impact: ['Baisse de 35% des incidents', '22% d\'économies directes'],
   },
   {
     icon: Shield,
-    title: 'Conseiller digital',
-    client: 'Mutuelle d\'assurance',
-    problem: 'Personnalisation insuffisante des offres (8% conversion)',
-    solution: 'Scoring multidimensionnel + moteur de recommandation hybride',
-    impact: ['+47% de taux de conversion', '-68% de temps de conseil', '+32% satisfaction client'],
+    title: 'Conseiller augmenté',
+    client: "Mutuelle d'assurance",
+    problem: 'Personnalisation insuffisante (8% de conversion)',
+    solution: 'Moteur de recommandation RAG + IA hybride',
+    impact: ['+47% de conversion', '-68% temps de conseil'],
   },
 ]
 
 export default function UseCases() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
-
   return (
-    <section id="cases" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-transparent to-brayn-dark/50">
+    <section id="cases" className="py-32 px-6 lg:px-8 bg-black relative border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-20 max-w-2xl"
         >
-          <span className="text-brayn-purple font-medium mb-4 block">Cas d&apos;usage</span>
-          <h2 className="font-display text-4xl sm:text-5xl font-bold mb-6">
-            Ils nous font <span className="gradient-text">confiance</span>
+          <div className="flex items-center gap-2 mb-4">
+            <span className="w-8 h-px bg-white/20" />
+            <span className="text-xs font-medium tracking-wide text-white/50 uppercase">Résultats mesurables</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-6">
+            L'excellence opérationnelle,<br />
+            <span className="text-white/40">prouvée.</span>
           </h2>
-          <p className="text-brayn-gray-400 text-lg max-w-2xl mx-auto">
-            Decouvrez comment nous avons aide nos clients a transformer leur activite grace a l&apos;IA.
+          <p className="text-lg text-white/50 font-light leading-relaxed">
+            Pas de théorie. Découvrez comment nos stratégies se traduisent en indicateurs de performance réels pour les leaders de leur marché.
           </p>
         </motion.div>
 
         {/* Use Cases Grid */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6">
           {useCases.map((useCase, index) => (
             <motion.div
               key={useCase.title}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="group"
             >
-              <div className="p-8 rounded-2xl glass hover:bg-white/5 transition-all duration-500 h-full border border-white/5 hover:border-brayn-cyan/30">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brayn-purple/20 to-brayn-cyan/20 flex items-center justify-center flex-shrink-0">
-                    <useCase.icon className="w-6 h-6 text-brayn-cyan" />
-                  </div>
-                  <div>
-                    <span className="text-xs text-brayn-cyan font-medium uppercase tracking-wider">{useCase.client}</span>
-                    <h3 className="font-display text-xl font-bold mt-1">{useCase.title}</h3>
-                  </div>
-                </div>
+              <div className="h-full flex flex-col">
+                <GlowCard 
+                  glowColor="purple" 
+                  customSize={true} 
+                  className="h-full bg-[#080808] border-white/[0.06] hover:border-white/[0.15] p-0"
+                >
+                  <div className="p-10 flex flex-col h-full z-10 relative">
+                    <div className="flex items-center gap-4 mb-8">
+                      <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-black shrink-0">
+                        <useCase.icon className="w-5 h-5 text-white/70" strokeWidth={1.5} />
+                      </div>
+                      <div>
+                        <span className="text-xs text-white/40 font-medium tracking-wide uppercase">{useCase.client}</span>
+                        <h3 className="text-lg font-medium text-white tracking-tight">{useCase.title}</h3>
+                      </div>
+                    </div>
 
-                <div className="space-y-4">
-                  <div>
-                    <span className="text-xs text-brayn-gray-500 uppercase tracking-wider">Problematique</span>
-                    <p className="text-brayn-gray-300 text-sm mt-1">{useCase.problem}</p>
-                  </div>
-                  
-                  <div>
-                    <span className="text-xs text-brayn-gray-500 uppercase tracking-wider">Solution</span>
-                    <p className="text-brayn-gray-300 text-sm mt-1">{useCase.solution}</p>
-                  </div>
+                    <div className="space-y-6 flex-grow">
+                      <div>
+                        <span className="text-[10px] text-white/30 uppercase tracking-widest font-semibold block mb-2">Problème</span>
+                        <p className="text-sm font-light text-white/60 leading-relaxed">{useCase.problem}</p>
+                      </div>
+                      
+                      <div>
+                        <span className="text-[10px] text-white/30 uppercase tracking-widest font-semibold block mb-2">Résolution</span>
+                        <p className="text-sm font-light text-white/60 leading-relaxed">{useCase.solution}</p>
+                      </div>
+                    </div>
 
-                  <div className="pt-4 border-t border-white/10">
-                    <span className="text-xs text-brayn-cyan uppercase tracking-wider">Impact</span>
-                    <div className="flex flex-wrap gap-2 mt-2">
-                      {useCase.impact.map((item) => (
-                        <span key={item} className="px-3 py-1 rounded-full bg-brayn-cyan/10 text-brayn-cyan text-xs font-medium">
-                          {item}
-                        </span>
-                      ))}
+                    <div className="pt-6 mt-8 border-t border-white/5 group-hover:border-white/10 transition-colors duration-500">
+                      <span className="text-[10px] text-white/70 uppercase tracking-widest font-semibold block mb-4">Impact</span>
+                      <div className="flex flex-wrap gap-2">
+                        {useCase.impact.map((item) => (
+                          <span key={item} className="px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-white/80 text-xs font-medium tracking-wide">
+                            {item}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </GlowCard>
               </div>
             </motion.div>
           ))}

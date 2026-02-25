@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Space_Grotesk } from 'next/font/google'
 import './globals.css'
+import Navbar from './components/Navbar'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -26,8 +27,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased neural-bg`}>
+    <html lang="fr" className="scroll-smooth">
+      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased bg-black`}>
+        {/* Aura X Dynamic Noise */}
+        <div className="noise-overlay" />
+        
+        <Navbar />
         {children}
       </body>
     </html>

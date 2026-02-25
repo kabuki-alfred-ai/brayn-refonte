@@ -1,54 +1,52 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { Mail, Phone, MapPin, Send } from 'lucide-react'
+import { Mail, MapPin, Send } from 'lucide-react'
 
 export default function Contact() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
-
   return (
-    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-32 px-6 lg:px-8 bg-black relative border-t border-white/5">
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-20">
           {/* Left Content */}
           <motion.div
-            ref={ref}
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="text-brayn-cyan font-medium mb-4 block">Contact</span>
-            <h2 className="font-display text-4xl sm:text-5xl font-bold mb-6">
-              Parlons de votre <span className="gradient-text">projet</span>
+            <div className="flex items-center gap-2 mb-4">
+              <span className="w-8 h-px bg-white/20" />
+              <span className="text-xs font-medium tracking-wide text-white/50 uppercase">Échange confidentiel</span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-6">
+              Initier le <br />
+              <span className="text-white/40">mouvement.</span>
             </h2>
-            <p className="text-brayn-gray-400 text-lg mb-12">
-              Prêt a transformer votre entreprise avec l&apos;IA ? Discutons de vos objectifs 
-              et voyons comment BRAYN peut vous accompagner.
+            <p className="text-lg text-white/50 font-light leading-relaxed mb-12 max-w-md">
+              Prêt à transformer votre entreprise avec l'IA ? Discutons de vos enjeux de façon transparente et confidentielle.
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-8">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-brayn-cyan/10 flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-brayn-cyan" />
+                <div className="w-10 h-10 rounded-full border border-white/10 bg-[#080808] flex items-center justify-center shrink-0">
+                  <Mail className="w-4 h-4 text-white/70" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <div className="text-sm text-brayn-gray-500">Email</div>
-                  <a href="mailto:contact@brayn-ai.com" className="text-white hover:text-brayn-cyan transition-colors">
+                  <div className="text-xs uppercase tracking-widest font-semibold text-white/30 mb-1">Email direct</div>
+                  <a href="mailto:contact@brayn-ai.com" className="text-sm font-medium text-white/80 hover:text-white transition-colors">
                     contact@brayn-ai.com
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-xl bg-brayn-purple/10 flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-brayn-purple" />
+                <div className="w-10 h-10 rounded-full border border-white/10 bg-[#080808] flex items-center justify-center shrink-0">
+                  <MapPin className="w-4 h-4 text-white/70" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <div className="text-sm text-brayn-gray-500">Localisation</div>
-                  <span className="text-white">France</span>
+                  <div className="text-xs uppercase tracking-widest font-semibold text-white/30 mb-1">Bureau</div>
+                  <span className="text-sm font-medium text-white/80">Paris, France</span>
                 </div>
               </div>
             </div>
@@ -56,56 +54,60 @@ export default function Contact() {
 
           {/* Right Form */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <form className="p-8 rounded-2xl glass">
+            <form className="p-10 sm:p-12 rounded-3xl bg-[#080808] border border-white/[0.06]">
               <div className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-brayn-gray-300 mb-2">Nom</label>
+                    <label className="block text-xs uppercase tracking-widest font-semibold text-white/50 mb-3">Nom</label>
                     <input
                       type="text"
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-brayn-gray-600 focus:outline-none focus:border-brayn-cyan/50 transition-colors"
-                      placeholder="Votre nom"
+                      className="w-full px-5 py-3.5 rounded-xl bg-black border border-white/10 text-white placeholder-white/20 focus:outline-none focus:border-white/40 focus:bg-white/5 transition-all font-light text-sm"
+                      placeholder="Jean Dupont"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-brayn-gray-300 mb-2">Entreprise</label>
+                    <label className="block text-xs uppercase tracking-widest font-semibold text-white/50 mb-3">Organisation</label>
                     <input
                       type="text"
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-brayn-gray-600 focus:outline-none focus:border-brayn-cyan/50 transition-colors"
-                      placeholder="Votre entreprise"
+                      className="w-full px-5 py-3.5 rounded-xl bg-black border border-white/10 text-white placeholder-white/20 focus:outline-none focus:border-white/40 focus:bg-white/5 transition-all font-light text-sm"
+                      placeholder="Entreprise"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-brayn-gray-300 mb-2">Email</label>
+                  <label className="block text-xs uppercase tracking-widest font-semibold text-white/50 mb-3">Email Pro</label>
                   <input
                     type="email"
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-brayn-gray-600 focus:outline-none focus:border-brayn-cyan/50 transition-colors"
-                    placeholder="votre@email.com"
+                    className="w-full px-5 py-3.5 rounded-xl bg-black border border-white/10 text-white placeholder-white/20 focus:outline-none focus:border-white/40 focus:bg-white/5 transition-all font-light text-sm"
+                    placeholder="jean@entreprise.com"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-brayn-gray-300 mb-2">Message</label>
+                  <label className="block text-xs uppercase tracking-widest font-semibold text-white/50 mb-3">Contexte</label>
                   <textarea
                     rows={4}
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-brayn-gray-600 focus:outline-none focus:border-brayn-cyan/50 transition-colors resize-none"
-                    placeholder="Parlez-nous de votre projet..."
+                    className="w-full px-5 py-3.5 rounded-xl bg-black border border-white/10 text-white placeholder-white/20 focus:outline-none focus:border-white/40 focus:bg-white/5 transition-all font-light text-sm resize-none"
+                    placeholder="Quels sont vos enjeux stratégiques actuels ?"
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full group inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-brayn-cyan to-brayn-cyan/80 text-brayn-dark font-semibold rounded-xl hover:glow-cyan transition-all duration-300"
-                >
-                  Envoyer le message
-                  <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
+                <div className="pt-4">
+                  <button
+                    type="submit"
+                    className="w-full group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-black rounded-xl overflow-hidden transition-transform hover:scale-[1.01] active:scale-[0.98]"
+                  >
+                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-black/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+                    <span className="relative font-medium text-sm">Transmettre la demande</span>
+                    <Send className="w-4 h-4 ml-1 relative group-hover:translate-x-1 transition-transform" strokeWidth={2} />
+                  </button>
+                </div>
               </div>
             </form>
           </motion.div>

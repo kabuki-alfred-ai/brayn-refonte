@@ -1,73 +1,77 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
-import { useRef } from 'react'
 import { Quote } from 'lucide-react'
 
 const testimonials = [
   {
-    quote: 'BRAYN nous a permis de passer d\'une vision technique de l\'IA generative a une vision strategique qui redefinit notre position sur le marche.',
-    author: 'Directeur General',
-    company: 'Entreprise de retail',
-    highlight: 'vision transformee',
+    quote: "L'intervention de BRAYN ne s'est pas résumée à du conseil technique. Ils ont redéfini notre vision stratégique pour la décennie à venir, avec une exécution implacable.",
+    author: 'Directeur Général',
+    company: 'Secteur Retail',
+    highlight: 'Vision transformée',
   },
   {
-    quote: 'Leur approche critique et pragmatique nous a evite les pieges des effets de mode et nous a permis de concentrer nos investissements sur les initiatives a fort impact.',
-    author: 'President',
-    company: 'Entreprise pharmacologique',
-    highlight: 'approche distinctive',
+    quote: "Leur approche critique nous a évité l'écueil des POC isolés. Chaque étape de l'intégration IA a été justifiée par un retour sur investissement mesurable.",
+    author: 'Président',
+    company: 'Industrie Pharmacologique',
+    highlight: 'Approche pragmatique',
   },
   {
-    quote: 'Plus qu\'un prestataire, BRAYN est devenu un partenaire strategique qui nous aide a naviguer dans la complexite de l\'IA generative avec clarte et vision.',
-    author: 'Directeur General',
-    company: 'Mutuelle d\'assurance',
-    highlight: 'partenariat strategique',
+    quote: "BRAYN opère avec le niveau d'exigence des meilleurs cabinets de conseil en stratégie, couplé à une maîtrise technologique de pointe.",
+    author: 'Directeur de l\'innovation',
+    company: 'Mutuelle d\'Assurance',
+    highlight: 'Partenariat stratégique',
   },
 ]
 
 export default function Testimonials() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
-
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-32 px-6 lg:px-8 bg-black relative border-t border-white/5">
+      {/* Background detail */}
+      <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(to_bottom,transparent,rgba(255,255,255,0.01))] pointer-events-none" />
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true, margin: '-100px' }}
+           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+           className="text-center mb-24 max-w-2xl mx-auto flex flex-col items-center"
         >
-          <span className="text-brayn-cyan font-medium mb-4 block">Temoignages</span>
-          <h2 className="font-display text-4xl sm:text-5xl font-bold mb-6">
-            Ce qu&apos;ils disent de <span className="gradient-text">nous</span>
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-xs font-medium tracking-wide text-white/50 uppercase">Confiance & Expertise</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-white mb-6">
+            Ceux qui ont <br />
+            <span className="text-white/40">franchi le pas.</span>
           </h2>
         </motion.div>
 
         {/* Testimonials Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((testimonial, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="relative"
+               key={index}
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true, margin: '-50px' }}
+               transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+               className="group"
             >
-              <div className="p-8 rounded-2xl glass h-full flex flex-col">
-                <Quote className="w-10 h-10 text-brayn-cyan/30 mb-6" />
+              <div className="p-10 rounded-3xl bg-[#080808] border border-white/[0.06] hover:border-white/[0.15] transition-colors duration-500 h-full flex flex-col relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
+                  <Quote className="w-24 h-24 text-white" strokeWidth={1} />
+                </div>
                 
-                <p className="text-brayn-gray-300 leading-relaxed flex-grow mb-6">
-                  &ldquo;{testimonial.quote}&rdquo;
+                <p className="text-lg text-white/80 leading-relaxed font-light flex-grow mb-12 relative z-10">
+                  "{testimonial.quote}"
                 </p>
 
-                <div className="pt-6 border-t border-white/10">
-                  <div className="font-semibold text-white">{testimonial.author}</div>
-                  <div className="text-sm text-brayn-gray-500">{testimonial.company}</div>
-                  <div className="mt-2 inline-block px-3 py-1 rounded-full bg-brayn-purple/10 text-brayn-purple text-xs font-medium">
+                <div className="pt-6 mt-auto border-t border-white/5 relative z-10">
+                  <div className="font-medium text-white tracking-tight mb-1">{testimonial.author}</div>
+                  <div className="text-sm text-white/40 font-light mb-4">{testimonial.company}</div>
+                  <div className="inline-flex px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-white/60 text-xs font-medium tracking-wide">
                     {testimonial.highlight}
                   </div>
                 </div>
