@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Lightbulb, Fingerprint, Briefcase, XCircle } from 'lucide-react'
+import { GlowCard } from './ui/spotlight-card'
 
 const differentiators = [
   {
@@ -80,21 +81,27 @@ export default function WhyChoose() {
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="relative lg:pl-10"
           >
-            <div className="relative p-12 rounded-3xl bg-[#080808] border border-white/[0.06] flex items-center flex-col justify-center text-center overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
-              
-              <div className="relative z-10 w-full">
-                <div className="text-7xl font-medium tracking-tighter text-white mb-2">24<span className="text-3xl text-white/60">+</span></div>
-                <div className="text-sm uppercase tracking-widest font-semibold text-white/90 mb-2">Années d'expérience</div>
-                <div className="text-sm font-light text-white/60">Cumulées en transformation digitale</div>
+            <GlowCard glowColor="cyan" customSize={true} className="h-full p-0 bg-transparent border-none rounded-2xl flex flex-col justify-center w-full">
+              <div className="relative p-12 rounded-2xl bg-[#080808]/80 backdrop-blur-md border border-white/[0.08] flex items-center flex-col justify-center text-center overflow-hidden h-full">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
                 
-                <div className="my-10 w-full h-px bg-white/5" />
-                
-                <div className="text-7xl font-medium tracking-tighter text-white mb-2">100<span className="text-3xl text-white/60">%</span></div>
-                <div className="text-sm uppercase tracking-widest font-semibold text-white/90 mb-2">Orienté sur la valeur</div>
-                <div className="text-sm font-light text-white/60">Rejet absolu des solutions préfabriquées</div>
+                <div className="relative z-10 w-full">
+                  <div className="text-7xl font-sans tracking-tighter mb-2 bg-gradient-to-br from-[#00f0ff] via-white to-[#8b5cf6] text-transparent bg-clip-text animate-[gradient_4s_ease_infinite] [background-size:200%_200%] drop-shadow-[0_0_15px_rgba(0,240,255,0.5)]">
+                    24<span className="text-3xl font-light text-white/50 ml-1 drop-shadow-none bg-none" style={{ WebkitTextFillColor: 'rgba(255,255,255,0.5)' }}>+</span>
+                  </div>
+                  <div className="text-sm uppercase tracking-widest font-semibold text-white/90 mb-2 mt-4">Années d'expérience</div>
+                  <div className="text-sm font-light text-white/60">Cumulées en transformation digitale</div>
+                  
+                  <div className="my-10 w-full h-px bg-white/5" />
+                  
+                  <div className="text-7xl font-sans tracking-tighter mb-2 bg-gradient-to-br from-[#00f0ff] via-white to-[#8b5cf6] text-transparent bg-clip-text animate-[gradient_4s_ease_infinite] [background-size:200%_200%] drop-shadow-[0_0_15px_rgba(0,240,255,0.5)]">
+                    100<span className="text-3xl font-light text-white/50 ml-1 drop-shadow-none bg-none" style={{ WebkitTextFillColor: 'rgba(255,255,255,0.5)' }}>%</span>
+                  </div>
+                  <div className="text-sm uppercase tracking-widest font-semibold text-white/90 mb-2">Orienté sur la valeur</div>
+                  <div className="text-sm font-light text-white/60">Rejet absolu des solutions préfabriquées</div>
+                </div>
               </div>
-            </div>
+            </GlowCard>
           </motion.div>
         </div>
       </div>

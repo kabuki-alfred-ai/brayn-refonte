@@ -79,9 +79,9 @@ export default function UseCases() {
                 <GlowCard 
                   glowColor="purple" 
                   customSize={true} 
-                  className="h-full bg-[#080808] border-white/[0.06] hover:border-white/[0.15] p-0"
+                  className="h-full p-0 border-none bg-transparent rounded-2xl flex flex-col"
                 >
-                  <div className="p-10 flex flex-col h-full z-10 relative">
+                  <div className="p-10 flex flex-col h-full z-10 relative bg-[#080808]/80 backdrop-blur-md border border-white/[0.08] group-hover:border-white/[0.15] rounded-2xl transition-colors duration-500">
                     <div className="flex items-center gap-4 mb-8">
                       <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-black shrink-0">
                         <useCase.icon className="w-5 h-5 text-white/70" strokeWidth={1.5} />

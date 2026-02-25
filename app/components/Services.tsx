@@ -38,9 +38,9 @@ function ServiceCard({ service, index }: { service: typeof services[0], index: n
       <GlowCard 
         glowColor="blue" 
         customSize={true}
-        className="h-full group relative bg-[#050505] p-0 flex flex-col"
+        className="h-full group relative p-0 border-none bg-transparent rounded-2xl flex flex-col"
       >
-        <div className="relative z-10 p-10 flex flex-col h-full">
+        <div className="relative z-10 p-10 flex flex-col h-full bg-[#080808]/80 backdrop-blur-md border border-white/[0.08] rounded-2xl">
           <div className="mb-14">
             <div className="w-14 h-14 rounded-2xl border border-white/5 bg-white/[0.02] flex items-center justify-center mb-8 group-hover:bg-white/[0.04] group-hover:scale-110 transition-all duration-700 ease-[0.16,1,0.3,1] shadow-[0_0_20px_rgba(255,255,255,0.0)] group-hover:shadow-[0_0_20px_rgba(255,255,255,0.03)]">
               <service.icon className="w-6 h-6 text-white/80" strokeWidth={1} />
