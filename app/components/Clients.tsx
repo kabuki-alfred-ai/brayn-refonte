@@ -31,7 +31,7 @@ export default function Clients() {
 
         <div className="relative flex overflow-hidden w-full [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
           <motion.div
-            className="flex flex-nowrap w-max"
+            className="flex flex-nowrap w-max will-change-transform transform-gpu"
             animate={{ x: ["0%", "-50%"] }}
             transition={{
               duration: 40,

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Quote } from 'lucide-react'
+import { GlowCard } from './ui/spotlight-card'
 
 const testimonials = [
   {
@@ -59,23 +60,25 @@ export default function Testimonials() {
                transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
                className="group"
             >
-              <div className="p-10 rounded-3xl bg-[#080808] border border-white/[0.06] hover:border-white/[0.15] transition-colors duration-500 h-full flex flex-col relative overflow-hidden">
-                <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
-                  <Quote className="w-24 h-24 text-white" strokeWidth={1} />
-                </div>
-                
-                <p className="text-lg text-white/80 leading-relaxed font-light flex-grow mb-12 relative z-10">
-                  "{testimonial.quote}"
-                </p>
+              <GlowCard glowColor="purple" customSize={true} className="h-full p-0 bg-transparent border-none rounded-2xl flex flex-col">
+                <div className="p-10 rounded-2xl bg-[#080808]/80 backdrop-blur-md border border-white/[0.08] hover:border-white/[0.15] transition-colors duration-500 h-full flex flex-col relative overflow-hidden">
+                  <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
+                    <Quote className="w-24 h-24 text-white" strokeWidth={1} />
+                  </div>
+                  
+                  <p className="text-lg text-white/80 leading-relaxed font-light flex-grow mb-12 relative z-10">
+                    "{testimonial.quote}"
+                  </p>
 
-                <div className="pt-6 mt-auto border-t border-white/5 relative z-10">
-                  <div className="font-medium text-white tracking-tight mb-1">{testimonial.author}</div>
-                  <div className="text-sm text-white/60 font-light mb-4">{testimonial.company}</div>
-                  <div className="inline-flex px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-white/80 text-xs font-medium tracking-wide">
-                    {testimonial.highlight}
+                  <div className="pt-6 mt-auto border-t border-white/5 relative z-10 group-hover:border-white/10 transition-colors duration-500">
+                    <div className="font-medium text-white tracking-tight mb-1 font-nasalization">{testimonial.author}</div>
+                    <div className="text-sm text-white/60 font-light mb-4">{testimonial.company}</div>
+                    <div className="inline-flex px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-white/80 text-xs font-medium tracking-wide">
+                      {testimonial.highlight}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </GlowCard>
             </motion.div>
           ))}
         </div>

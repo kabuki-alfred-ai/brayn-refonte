@@ -28,12 +28,23 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
     const particleColor = '#ffffff'
 
     let mouse = { x: -1000, y: -1000 }
+    let rect = canvas.getBoundingClientRect();
     
+    let ticking = false;
     const handleMouseMove = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect()
-      mouse.x = (e.clientX - rect.left) * (size / rect.width)
-      mouse.y = (e.clientY - rect.top) * (size / rect.height)
-    }
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          mouse.x = (e.clientX - rect.left) * (size / rect.width);
+          mouse.y = (e.clientY - rect.top) * (size / rect.height);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    const handleScrollOrResize = () => {
+      rect = canvas.getBoundingClientRect();
+    };
     
     const handleMouseLeave = () => {
       mouse.x = -1000
@@ -42,6 +53,8 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
 
     window.addEventListener('mousemove', handleMouseMove)
     window.addEventListener('mouseleave', handleMouseLeave)
+    window.addEventListener('scroll', handleScrollOrResize, { passive: true })
+    window.addEventListener('resize', handleScrollOrResize, { passive: true })
 
     class Particle {
       x: number
@@ -181,6 +194,8 @@ export function Entropy({ className = "", size = 400 }: EntropyProps) {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove)
       window.removeEventListener('mouseleave', handleMouseLeave)
+      window.removeEventListener('scroll', handleScrollOrResize)
+      window.removeEventListener('resize', handleScrollOrResize)
       if (animationId) {
         cancelAnimationFrame(animationId)
       }

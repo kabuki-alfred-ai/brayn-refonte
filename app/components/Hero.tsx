@@ -44,7 +44,8 @@ export default function Hero() {
             scale: [1, 1.1, 0.9, 1]
           }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute top-[10%] -left-[10%] w-[800px] h-[800px] bg-white/[0.04] rounded-full blur-[80px]"
+          className="absolute top-[10%] -left-[10%] w-[800px] h-[800px] rounded-full"
+          style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%)' }}
         />
         <motion.div 
           animate={{ 
@@ -53,7 +54,8 @@ export default function Hero() {
             scale: [1, 1.2, 0.8, 1]
           }}
           transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-[-10%] -right-[10%] w-[1000px] h-[1000px] bg-white/[0.03] rounded-full blur-[90px]"
+          className="absolute bottom-[-10%] -right-[10%] w-[1000px] h-[1000px] rounded-full"
+          style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 60%)' }}
         />
         <motion.div 
           animate={{ 
@@ -62,7 +64,8 @@ export default function Hero() {
             scale: [0.9, 1.1, 0.9]
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-[40%] left-[40%] w-[600px] h-[600px] bg-white/[0.03] rounded-full blur-[70px]"
+          className="absolute top-[40%] left-[40%] w-[600px] h-[600px] rounded-full"
+          style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 60%)' }}
         />
       </div>
 
@@ -73,14 +76,13 @@ export default function Hero() {
           x: mouseX,
           y: mouseY,
           background: 'radial-gradient(circle at center, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 40%, transparent 60%)',
-          filter: 'blur(40px)',
           willChange: 'transform'
         }}
       />
       
       {/* Entropy Grid Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40 flex items-center justify-center -mt-20">
-        <Entropy size={1200} className="mix-blend-screen scale-125" />
+        <Entropy size={1200} className="scale-125" />
       </div>
 
       

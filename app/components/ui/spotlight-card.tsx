@@ -38,14 +38,22 @@ const GlowCard: React.FC<GlowCardProps> = ({
   const innerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    let ticking = false;
+
     const syncPointer = (e: PointerEvent) => {
       const { clientX: x, clientY: y } = e;
       
-      if (cardRef.current) {
-        cardRef.current.style.setProperty('--x', x.toFixed(2));
-        cardRef.current.style.setProperty('--xp', (x / window.innerWidth).toFixed(2));
-        cardRef.current.style.setProperty('--y', y.toFixed(2));
-        cardRef.current.style.setProperty('--yp', (y / window.innerHeight).toFixed(2));
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          if (cardRef.current) {
+            cardRef.current.style.setProperty('--x', x.toFixed(2));
+            cardRef.current.style.setProperty('--xp', (x / window.innerWidth).toFixed(2));
+            cardRef.current.style.setProperty('--y', y.toFixed(2));
+            cardRef.current.style.setProperty('--yp', (y / window.innerHeight).toFixed(2));
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 

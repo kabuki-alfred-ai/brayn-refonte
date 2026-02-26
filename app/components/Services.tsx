@@ -76,7 +76,7 @@ export default function Services() {
   return (
     <section id="services" className="py-40 px-6 lg:px-8 bg-black relative border-t border-white/5">
       {/* Deep Background Glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-white/[0.015] blur-[150px] rounded-[100%] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] rounded-[100%] pointer-events-none" style={{ background: 'radial-gradient(ellipse, rgba(255,255,255,0.02) 0%, transparent 60%)' }} />
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
